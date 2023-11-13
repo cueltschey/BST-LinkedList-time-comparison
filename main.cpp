@@ -110,6 +110,67 @@ int main()
 
   runAll(1000, randoms, gen32);
   runAll(200, randoms, gen32);
+  runAll(24, randoms, gen32);
+  runAll(12, randoms, gen32);
+
+  BST b = BST();
+  // time recording block
+  auto start = chrono::high_resolution_clock::now();
+  
+  for(int i = 1000; i > 0; i--){
+    b.insert(i);
+  }
+   
+  auto end = chrono::high_resolution_clock::now();
+
+  chrono::duration<double> elapsed_seconds = end - start;
+
+  cout << "time to insert 1000 - 1 BST: " << elapsed_seconds.count() << endl;
+  b = BST();
+  // time recording block
+  start = chrono::high_resolution_clock::now();
+  
+  for(int i = 0; i < 1000; ++i){
+    b.insert(i);
+  } 
+   
+  end = chrono::high_resolution_clock::now();
+
+  elapsed_seconds = end - start;
+
+  cout << "time to insert 1 - 1000 BST: " << elapsed_seconds.count() << endl;
+
+  Linked l = Linked();
+
+  // time recording block
+  start = chrono::high_resolution_clock::now();
+  
+  for(int i = 1000; i > 0; i--){
+    b.insert(i);
+    l.append(i);
+  }
+   
+  end = chrono::high_resolution_clock::now();
+
+  elapsed_seconds = end - start;
+
+  cout << "time to insert 1000 - 1 Linked: " << elapsed_seconds.count() << endl;
+  
+  l = Linked();
+  // time recording block
+  start = chrono::high_resolution_clock::now();
+  
+  for(int i = 0; i < 1000; ++i){
+    b.insert(i);
+    l.append(i);
+  } 
+   
+  end = chrono::high_resolution_clock::now();
+
+  elapsed_seconds = end - start;
+
+  cout << "time to insert 1 - 1000 Linked: " << elapsed_seconds.count() << endl;
+
   
   return 0;
 }
